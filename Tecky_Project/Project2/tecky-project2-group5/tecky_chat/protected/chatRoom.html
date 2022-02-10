@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="./css/chatroom.css" />
+        <link rel="stylesheet" href="./css/monokia.css" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="root">
+            <div id="chat-frame">
+                <div class="container-fluid">
+                    <div id="container-row" class="row" style="height: 100%">
+                        <div id="left-side-bar" class="col-md-4 col-sm-12">
+                            <div class="left-top">
+                                <div class="left-container">
+                                    <div class="creat-chat-room">
+                                        <input
+                                            id="new-group-name"
+                                            type="text"
+                                            placeholder="新增對話頻道"
+                                            class="search-input form-control"
+                                            style="width: 60%; color: white"
+                                        />
+                                        <div class="add">
+                                            <i
+                                                id="addNewGroup"
+                                                class="fas fa-plus-circle"
+                                                data-bs-toggle="offcanvas"
+                                                href="#offcanvasExample"
+                                                role="button"
+                                                aria-controls="offcanvasExample"
+                                            ></i>
+
+                                            <div
+                                                class="offcanvas offcanvas-start"
+                                                tabindex="-1"
+                                                id="offcanvasExample"
+                                                aria-labelledby="offcanvasExampleLabel"
+                                            >
+                                                <div class="offcanvas-body">
+                                                    <input
+                                                        id="new-group-new-user-input"
+                                                        type="text"
+                                                        placeholder="add username"
+                                                        aria-label=""
+                                                    />
+                                                    <button
+                                                        id="new-group-add-new-user-button"
+                                                        class="d-block btn btn-outline-success"
+                                                    >
+                                                        add user
+                                                    </button>
+                                                    <button
+                                                        id="create-group"
+                                                        class="d-block btn btn-outline-success"
+                                                        aria-label="Close"
+                                                        data-bs-toggle="offcanvas"
+                                                        data-target="offcanvasExample"
+                                                    >
+                                                        create group
+                                                    </button>
+                                                    <div id="new-users-list"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="chat-list">
+                                <!-- <div class="new-group">
+                                    <button id="unread" type="button" class="position-relative">
+                                        <span
+                                            class="
+                                                position-absolute
+                                                top-0
+                                                start-100
+                                                translate-middle
+                                                badge
+                                                rounded-pill
+                                                bg-danger
+                                            "
+                                        >
+                                            99+
+                                            <span class="visually-hidden">unread messages</span>
+                                        </span>
+                                    </button>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div id="main-chat" class="col-md-8 col-sm-12 justify-content-between">
+                            <div class="main-chat-navbar">
+                                <div class="main-chat-items">
+                                    <div>
+                                        <div id="user-profile-pic">
+                                            <i id="user" class="far fa-user mx-3"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="search-list">
+                                        <div id="home-btn" onclick='location.hash = "left-side-bar"; location.hash = "";'><i class="fas fa-home mx-3"></i></div>
+                                        <div class="search">
+                                            <i
+                                                id="search"
+                                                class="fas fa-search"
+                                                data-bs-toggle="offcanvas"
+                                                href="#offcanvasRight"
+                                                role="button"
+                                                aria-controls="offcanvasRight"
+                                            ></i>
+                                            <div
+                                                class="offcanvas offcanvas-end"
+                                                tabindex="-1"
+                                                id="offcanvasRight"
+                                                aria-labelledby="offcanvasRightLabel"
+                                            >
+                                                <div id="search-offcanvas" class="offcanvas-body">
+                                                    <input
+                                                        id="searchGetInput"
+                                                        type="text"
+                                                        placeholder="search..."
+                                                        aria-label="default input example"
+                                                    />
+                                                    <button id="search-input" class="btn btn-outline-primary fs-3 my-2">
+                                                        search
+                                                    </button>
+                                                    <div id="search-reseult-list">
+                                                        <div id="search-reseult-list"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <i class="fas fa-ellipsis-v"></i> -->
+                                        <i
+                                        id="open-game-room"
+                                        class="fas fa-gamepad"
+                                        onclick="displayPreGameCard()"
+                                        ></i>
+                                        <i id="logout" class="fas fa-sign-out-alt mx-3" onclick="logout()"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="message-container" class="white-space">
+                                <!-- <div class="chat-bubble">
+                                    <div class="right">
+                                        <div class="chat-right-bubble"></div>
+                                        <i id="bubble-icon" class="far fa-circle"></i>
+                                    </div>
+                                    <br />
+                                    <div class="left">
+                                        <i id="bubble-icon" class="far fa-circle"></i>
+                                        <div class="chat-left-bubble"></div>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <div class="main-chat-control container-fluid my-4">
+                                <div class="row align-items-end">
+                                    <div class="attachment col-1 flex-column-reverse">
+                                        <div>
+                                            <i id="attachIcon" class="fas fa-paperclip"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-8" style="position: relative">
+                                        <div
+                                            id="messageInput"
+                                            class="my-text-area"
+                                            contenteditable="true"
+                                            spellcheck="true"
+                                        ></div>
+                                        <div id="sendText">
+                                            <i
+                                                style="position: absolute; right: 10px; top: 10px"
+                                                id="sentButton"
+                                                class="far fa-paper-plane"
+                                            ></i>
+                                        </div>
+                                    </div>
+                                    <div id="coding-container" class="col-1 flex-column-reverse">
+                                        <div id="coding-key-container" class="mx-3 height-auto">
+                                            <label class="switch">
+                                                <input id="coding-status-switch" type="checkbox" class="switch-input" />
+                                                <span class="switch-label" data-on="Coding" data-off="Message"></span>
+                                                <span class="switch-handle"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- card for add new member to group -->
+            <div id="pre-game-card">
+                <div class="my-card card card-body position-absolute top-50 start-50 translate-middle w-75 h-75">
+                    <div class="container overflow-auto">
+                        <div class="row">
+                            <div class="d-flex align-middle">
+                                <div id="cross-pre-game-card">
+                                    <i class="far fa-times-circle text-primary fs-2 mx-2 my-fw-100"></i>
+                                </div>
+                                <div class="btn btn-outline-primary mx-4" onclick="addNewTable()">add table</div>
+                            </div>
+                        </div>
+
+                        <div id="pre-game-card-main" class="row row-cols-auto justify-content-start"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- card for choose which game-->
+            <div id="game-type-card">
+                <div class="my-card card card-body position-absolute top-50 start-50 translate-middle w-50 h-75">
+                    <div class="container overflow-auto">
+                        <div class="row">
+                            <div id="cross-game-type-card" class="d-flex align-middle">
+                                <i class="far fa-times-circle text-primary fs-2 mx-2 my-fw-100"></i>
+                            </div>
+                        </div>
+
+                        <div class="row row-cols-auto">
+                            <div
+                                id="apc-card"
+                                onclick="changeTableType(1)"
+                                class="col px-2 py-3 d-flex flex-column justify-content-start align-items-center"
+                            >
+                                <img src="./image/apc_fig.png" alt="Aeroplane Chess" />
+                                <div>Aeroplane Chess</div>
+                            </div>
+                            <div
+                                id="reversi-card"
+                                onclick="changeTableType(2)"
+                                class="col px-2 py-3 d-flex flex-column justify-content-start align-items-center"
+                            >
+                                <img src="./image/reversi_fig.png" alt="Reversi" />
+                                <div>
+                                    Reversi
+                                    <br />
+                                    (coming soon)
+                                </div>
+                            </div>
+                            <div
+                                id="big2-card"
+                                onclick="changeTableType(3)"
+                                class="col px-2 py-3 d-flex flex-column justify-content-start align-items-center"
+                            >
+                                <img src="./image/big2_fig.png" alt="Big 2" />
+                                <div>
+                                    Big 2
+                                    <br />
+                                    (coming soon)
+                                </div>
+                            </div>
+                            <div
+                                id="whack-mole-card"
+                                onclick="changeTableType(4)"
+                                class="col px-2 py-3 d-flex flex-column justify-content-start align-items-center"
+                            >
+                                <img src="./image/whack_mole_fig.png" alt="Whack Mole" />
+                                <div>
+                                    Whack Mole
+                                    <br />
+                                    (coming soon)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"
+            type="text/javascript"
+        ></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="./js/chatroom.js"></script>
+    </body>
+</html>

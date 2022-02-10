@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trial - CozyChat</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="chat-frame">
+      <div class="side-bar">
+        <div class="logo">
+          <!-- 新增登入欄 -->
+          <form class="text-center" id="login-form">
+            <div class="form-group">
+              <input type="text" name="username" placeholder="帳號" class="form-controler" />
+            </div>
+            <div class="form-group">
+              <input type="password" name="password" placeholder="密碼" class="form-controler" />
+            </div>
+            <div class="form-group text-center">
+              <input type="submit" value="登入" class="btn btn-primary" />
+            </div>
+          </form>
+        </div>
+        <div class="control">
+          <div class="create-channel-input">
+            <input id="newGroupInput" type="text" placeholder="新增對話頻道" />
+          </div>
+          <div class="add-button">
+            <button id="addNewGroup">+</button>
+          </div>
+        </div>
+        <div id="chatList" class="chat-list"></div>
+      </div>
+      <div class="chat-content">
+        <div class="chat-info">
+          <div class="ava"></div>
+          <div class="chat-name"></div>
+          <div class="chat-more"></div>
+        </div>
+        <!-- 訊息插入位置 -->
+        <div id="conversation" class="conversation"></div>
+        <!--輸入訊息位置-->
+        <form class="chat-input" id="messageInput">
+          <div class="input-wrapper">
+            <!-- 新增 name = content -->
+            <input type="text" name="content" placeholder="輸入訊息" />
+          </div>
+          <div class="button-wrapper">
+            <!--新增 type = submit-->
+            <button id="sendText" type="submit">送出</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <template id="chatChannel">
+    <div class="chat-channel">
+      <div class="ava"></div>
+      <div class="chat-detail">
+        <div class="chat-detail-name"></div>
+        <div class="chat-detail-msg"></div>
+      </div>
+      <div class="chat-time"></div>
+    </div>
+  </template>
+  <template id="chatMessage">
+    <div class="message">
+      <div class="message-content"></div>
+      <div class="time"></div>
+    </div>
+  </template>
+  <script src="/js/index.js"></script>
+
+</html>

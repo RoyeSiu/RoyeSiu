@@ -1,0 +1,332 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+
+        <link
+            rel="stylesheet"
+            href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+            crossorigin="anonymous"
+        />
+
+        <link rel="stylesheet" href="./css/aeroplane_chess.css" />
+    </head>
+
+    <body>
+        <div id="whole-container" class="d-flex my-1 justify-content-center overflow-auto">
+            <!-- left container begin -->
+            <div
+                id="left-col-container"
+                class="d-flex flex-column flex-column justify-content-between left-col-container"
+            >
+                <!-- player 4 card -->
+                <div id="player4-card">
+                    <div class="">
+                        <div class="player-info d-flex justify-content-between d-flex justify-content-between">
+                            <div class="col">
+                                <div id="player4-text">Player 4</div>
+                                <div id="player4-nickname">player4 nickname</div>
+                            </div>
+                            <div id="player4-profile-pic" class="profile-pic">
+                                <img src="./image/test_icon.png" alt="" class="profile-pic" />
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="">
+                                <div>Remaining Steps:</div>
+                                <div class="d-flex flex-nowrap justify-content-between">
+                                    <div
+                                        id="player4-chess-0-btn"
+                                        class="chess-number-disp player4-message"
+                                        onclick="moveChess(0, FE_roll_number)"
+                                    >
+                                        56
+                                    </div>
+                                    <div
+                                        id="player4-chess-1-btn"
+                                        class="chess-number-disp player4-message"
+                                        onclick="moveChess(1, FE_roll_number)"
+                                    >
+                                        56
+                                    </div>
+                                    <div
+                                        id="player4-chess-2-btn"
+                                        class="chess-number-disp player4-message"
+                                        onclick="moveChess(2, FE_roll_number)"
+                                    >
+                                        56
+                                    </div>
+                                    <div
+                                        id="player4-chess-3-btn"
+                                        class="chess-number-disp player4-message"
+                                        onclick="moveChess(3, FE_roll_number)"
+                                    >
+                                        56
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- left mid card -->
+                <div id="left-mid-card" class="mid-card my-2">
+                    <div>
+                        <div class="d-flex justify-content-between">
+                            <div id="turn_disp" class="">turn: <span>1</span></div>
+                            <div id="player_turn_disp" class=""><span>player_1</span> turn</div>
+                        </div>
+
+                        <div>
+                            <div
+                                class="dice-card d-flex justify-content-between align-content-center align-items-center"
+                            >
+                                <div id="roll-btn" class="btn btn-primary my-btn-font-size" onclick="roll_dice()">
+                                    roll dice
+                                </div>
+                                <div id="roll_num_disp" class="roll-disp"><i class="fas fa-dice-one"></i></div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="slidecontainer">
+                            <div>animation rate control</div>
+                            <input type="range" min="1" max="25" value="25" class="slider" id="animationRange" />
+                        </div> -->
+
+                        <div id="animation-on-off-container" class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="animation-on-off" />
+                            <label class="form-check-label" for="animation-on-off">Animation On/Off</label>
+                        </div>
+
+                        <div id="script-on-off-container" class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="script-on-off" />
+                            <label class="form-check-label" for="script-on-off">Script On/Off</label>
+                        </div>
+                        <div id="script-input-container">
+                            <div id="" class="btn btn-primary my-btn-font-size" onclick="enableScriptInput()">
+                                start input
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- player 3 card -->
+                <div id="player3-card">
+                    <div class="">
+                        <div class="player-info d-flex justify-content-between d-flex justify-content-between">
+                            <div class="col">
+                                <div id="player3-text">Player 3</div>
+                                <div id="player3-nickname">player3 nickname</div>
+                            </div>
+                            <div id="player3-profile-pic" class="profile-pic">
+                                <img src="./image/test_icon.png" alt="" class="profile-pic" />
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="">
+                                <div>Remaining Steps:</div>
+                                <div class="d-flex flex-nowrap justify-content-between">
+                                    <div
+                                        id="player3-chess-0-btn"
+                                        class="chess-number-disp player3-message"
+                                        onclick="moveChess(0, FE_roll_number)"
+                                    >
+                                        56
+                                    </div>
+                                    <div
+                                        id="player3-chess-1-btn"
+                                        class="chess-number-disp player3-message"
+                                        onclick="moveChess(1, FE_roll_number)"
+                                    >
+                                        56
+                                    </div>
+                                    <div
+                                        id="player3-chess-2-btn"
+                                        class="chess-number-disp player3-message"
+                                        onclick="moveChess(2, FE_roll_number)"
+                                    >
+                                        56
+                                    </div>
+                                    <div
+                                        id="player3-chess-3-btn"
+                                        class="chess-number-disp player3-message"
+                                        onclick="moveChess(3, FE_roll_number)"
+                                    >
+                                        56
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="canvas-container">
+                <div id="canvas"></div>
+            </div>
+
+            <div id="right-col-container" class="d-flex flex-column flex-column justify-content-between">
+                <!-- player 1 card -->
+                <div id="player1-card">
+                    <div class="">
+                        <div class="player-info d-flex justify-content-between d-flex justify-content-between">
+                            <div class="col">
+                                <div id="player1-text">Player 1</div>
+                                <div id="player1-nickname">player1 nickname</div>
+                            </div>
+                            <div id="player1-profile-pic" class="profile-pic">
+                                <img src="./image/test_icon.png" alt="" class="profile-pic" />
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="">
+                                <div>Remaining Steps:</div>
+                                <div class="d-flex flex-nowrap justify-content-between">
+                                    <div
+                                        id="player1-chess-0-btn"
+                                        class="chess-number-disp player1-message"
+                                        onclick="moveChess(0, FE_roll_number)"
+                                    >
+                                        56
+                                    </div>
+                                    <div
+                                        id="player1-chess-1-btn"
+                                        class="chess-number-disp player1-message"
+                                        onclick="moveChess(1, FE_roll_number)"
+                                    >
+                                        56
+                                    </div>
+                                    <div
+                                        id="player1-chess-2-btn"
+                                        class="chess-number-disp player1-message"
+                                        onclick="moveChess(2, FE_roll_number)"
+                                    >
+                                        56
+                                    </div>
+                                    <div
+                                        id="player1-chess-3-btn"
+                                        class="chess-number-disp player1-message"
+                                        onclick="moveChess(3, FE_roll_number)"
+                                    >
+                                        56
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- right mid card -->
+                <div id="right-mid-card" class="mid-card my-2">
+                    <div id="mini-chatroom-container" class="d-flex flex-column justify-content-between">
+                        <div id="message-container" class="overflow-auto"></div>
+                        <div class="chat-input">
+                            <div class="input-wrapper d-flex">
+                                <textarea id="messageInput" class="my-text-area" spellcheck="true"></textarea>
+                                <!-- <div id="send-btn"><i class="far fa-paper-plane"></i></div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- player 2 card -->
+                <div id="player2-card">
+                    <div class="">
+                        <div class="player-info d-flex justify-content-between d-flex justify-content-between">
+                            <div class="col">
+                                <div id="player2-text">Player 2</div>
+                                <div id="player2-nickname">player2 nickname</div>
+                            </div>
+                            <div id="player2-profile-pic" class="profile-pic">
+                                <img src="./image/test_icon.png" alt="" class="profile-pic" />
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="">
+                                <div>Remaining Steps:</div>
+                                <div class="d-flex flex-nowrap justify-content-between">
+                                    <div
+                                        id="player2-chess-0-btn"
+                                        class="chess-number-disp player2-message"
+                                        onclick="moveChess(0, FE_roll_number)"
+                                    >
+                                        56
+                                    </div>
+                                    <div
+                                        id="player2-chess-1-btn"
+                                        class="chess-number-disp player2-message"
+                                        onclick="moveChess(1, FE_roll_number)"
+                                    >
+                                        56
+                                    </div>
+                                    <div
+                                        id="player2-chess-2-btn"
+                                        class="chess-number-disp player2-message"
+                                        onclick="moveChess(2, FE_roll_number)"
+                                    >
+                                        56
+                                    </div>
+                                    <div
+                                        id="player2-chess-3-btn"
+                                        class="chess-number-disp player2-message"
+                                        onclick="moveChess(3, FE_roll_number)"
+                                    >
+                                        56
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="chuenchuen-test">
+                    <div class="btn btn-primary" onclick="roll_dice_must(1)">roll 1</div>
+                    <div class="btn btn-primary" onclick="roll_dice_must(2)">roll 2</div>
+                    <div class="btn btn-primary" onclick="roll_dice_must(3)">roll 3</div>
+                    <div class="btn btn-primary" onclick="roll_dice_must(4)">roll 4</div>
+                    <div class="btn btn-primary" onclick="roll_dice_must(5)">roll 5</div>
+                    <div class="btn btn-primary" onclick="roll_dice_must(6)">roll 6</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- card for add new member to group -->
+        <div id="win-game-card">
+            <div class="card card-body position-absolute top-50 start-50 translate-middle">
+                <div id="win-message" class="text-center display-3">player_1 win the game</div>
+                <div class="d-flex justify-content-center">
+                    <div class="btn btn-primary m-3 fs-3" onclick="playAgain()">Play Again</div>
+                    <div class="btn btn-primary m-3 fs-3" onclick="closeWinCard()">Close</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="script-input-card">
+            <div class="card card-body position-absolute top-50 start-50 translate-middle h-50 w-50">
+                <textarea class="form-control" placeholder="your code here" id="script-input" disabled></textarea>
+                <div id="submit-script-btn" class="btn btn-primary my-btn-font-size  my-3" onclick="submitAndDisableScriptInput()">submit</div>
+            </div>
+        </div>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"></script>
+        <!-- <script src="https://unpkg.com/p5.js-svg@1.1.1"></script> -->
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="./js/aeroplane_chess_data.js"></script>
+        <script src="./js/aeroplane_chess_draw.js"></script>
+        <script src="./js/aeroplane_chess_socket.js"></script>
+    </body>
+</html>

@@ -1,0 +1,174 @@
+.myself-0 {
+    background-color: rgba(0, 0, 255, 0.1);
+}
+.myself-1 {
+    background-color: rgba(0, 255, 0, 0.1);
+}
+.myself-2 {
+    background-color: rgba(255, 0, 0, 0.1);
+}
+.myself-3 {
+    background-color: rgba(255, 215, 0, 0.1);
+}
+
+#roll_num_disp {
+    font-size: 4em;
+}
+/* 
+#player_turn_disp {
+    margin: 10px;
+    border-width: 5px;
+    border-color: black;
+    border-style: solid;
+    font-size: 50px;
+} */
+
+#script-input-container {
+    display: none;
+}
+
+#script-input {
+    height: 100%;
+    /* max-height: 50rem; */
+}
+
+#canvas-container {
+    padding: 2vh;
+    border: 4px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#left-col-container {
+    font-size: 2.5vh;
+    padding: 1em;
+    border-top: 4px solid;
+    border-bottom: 4px solid;
+    border-left: 4px solid;
+    width: 40vh;
+}
+
+#right-col-container {
+    font-size: 2.5vh;
+    padding: 1em;
+    border-top: 4px solid;
+    border-bottom: 4px solid;
+    border-right: 4px solid;
+    width: 40vh;
+}
+
+#player1-card,
+#player2-card,
+#player3-card,
+#player4-card {
+    height: 25vh;
+    border: 2px solid;
+    border-radius: 1em;
+    padding: 1em;
+}
+
+.mid-card {
+    height: 40vh;
+    border: 2px solid;
+    border-radius: 1em;
+    padding: 1em;
+}
+
+.chess-number-disp {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    background-color: yellow;
+    width: 2em;
+    height: 2em;
+    border-radius: 1em;
+}
+
+.my-bg-blue {
+    background-color: rgba(0, 0, 255, 0.3);
+}
+
+#player1-roll-btn {
+    border: 1px;
+    border-radius: 0.5em;
+    padding: 0.5em;
+}
+
+.chuenchuen-test {
+    display: none;
+}
+
+.profile-pic {
+    max-width: 5em;
+    max-height: 5em;
+    width: auto;
+    height: auto;
+}
+
+#message-container {
+    overflow: auto;
+    scroll-behavior: smooth;
+    height: 12em;
+}
+
+#messageInput {
+    border-radius: 1em;
+    border-style: solid;
+    width: 100%;
+}
+
+.my-text-area {
+    position: relative;
+    height: 2em;
+    outline: none;
+    margin: 5px;
+    padding: 2px;
+    overflow: hidden;
+}
+
+#send-btn {
+    /* text-align: center; */
+    /* vertical-align: middle; */
+    background-color: green;
+    width: 1em;
+    height: 1em;
+    /* border-radius: 1em; */
+}
+
+.player1-message {
+    background-color: rgba(0, 0, 255, 0.4);
+}
+
+.player2-message {
+    background-color: rgba(0, 255, 0, 0.4);
+}
+
+.player3-message {
+    background-color: rgba(255, 0, 0, 0.4);
+}
+
+.player4-message {
+    background-color: rgba(255, 215, 0, 0.4);
+}
+
+.my-btn-font-size{
+    font-size: 1em;
+    padding: 0.375em;
+}
+
+#win-game-card{
+    display:none
+}
+
+#script-input-card{
+    display:none
+}
+
+#submit-script-btn{
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
