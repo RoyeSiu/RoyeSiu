@@ -1,0 +1,47 @@
+version: '2'
+
+services:
+  backend:
+    container_name: 'wevo_backend'
+    image: wevo_backend
+    restart: always
+    networks:
+      dae:
+        ipv4_address: 172.1.0.10
+    ports:
+      - '8080:8080'
+    volumes:
+      - .:/app
+  mongodb:
+    container_name: 'mongo'
+    image: mongo
+    restart: always
+    networks:
+      dae:
+        ipv4_address: 172.1.0.20
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./mongodb/db:/data/db
+  postgres:
+    container_name: 'postgres'
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_BD: wevotest
+    # restart: always
+    networks:
+      dae:
+        ipv4_address: 172.1.0.30
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./postgres/db:/data/db
+networks:
+  dae:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.1.0.0/24
